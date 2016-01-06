@@ -3,6 +3,18 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="solei" class="mx.com.ronin.concursantes.Malabarista"/>
-
+<!-- 	<bean id="solei" class="mx.com.ronin.concursantes.Malabarista"/> -->
+		<bean id="solei" class="mx.com.ronin.concursantes.Malabarista">
+			<constructor-arg value="10"/>
+		</bean>
+		
+		<!-- Equivale al siguiente codigo las siguientes anotaciones-->
+		<!-- Poema soneto = new Soneto() -->		
+		<bean id="soneto" class="mx.com.ronin.concursantes.Soneto"/>
+		
+		<!-- Concursante concursante = new MalabaristaRecitador(10, soneto); -->
+		<bean id="soleiRecitador" class="mx.com.ronin.concursantes.MalabaristaRecitador">
+			<constructor-arg value="15"/>
+			<constructor-arg ref="soneto" />
+		</bean>
 </beans>
