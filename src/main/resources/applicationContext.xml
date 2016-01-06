@@ -17,4 +17,22 @@
 			<constructor-arg value="15"/>
 			<constructor-arg ref="soneto" />
 		</bean>
+		
+		
+		<!-- Musico -->
+		<bean id="piano" class="mx.com.ronin.concursantes.Piano" />
+		
+		<bean id="jasonPiano" class="mx.com.ronin.concursantes.Musico">
+			<property name="cancion" value="Noche de Paz" />
+			<property name="instrumento" ref="piano"></property>
+		</bean>
+		
+		<bean id="jasonSax" class="mx.com.ronin.concursantes.Musico">
+			<property name="cancion" value="Stkiller"/>
+			<property name="instrumento">
+				<bean class="mx.com.ronin.concursantes.Saxofon"/>
+			</property>
+		</bean>
+		
+		
 </beans>
