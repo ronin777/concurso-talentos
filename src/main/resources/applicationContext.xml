@@ -28,7 +28,7 @@
 		</bean>
 		
 		<bean id="jasonSax" class="mx.com.ronin.concursantes.Musico">
-			<property name="cancion" value="Stkiller"/>
+			<property name="cancion" value="Skillet"/>
 			<property name="instrumento">
 				<bean class="mx.com.ronin.concursantes.Saxofon"/>
 			</property>

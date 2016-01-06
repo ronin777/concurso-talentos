@@ -11,18 +11,23 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import mx.com.ronin.concursantes.Concursante;
 import mx.com.ronin.concursantes.Malabarista;
+import mx.com.ronin.concursantes.Musico;
 
 public class TestConcursoTalentos {
 
 	private static Log logger = LogFactory.getLog("TestConcursoTalentos");
 	private Concursante malabarista;
 	private Concursante malabaristaRecitador;
+	private Concursante musicoPiano;
+	private Concursante musicoSaxofon;
 	
 	@Before
 	public void before(){
 		ApplicationContext contexto = new ClassPathXmlApplicationContext("applicationContext.xml");
 		malabarista= (Concursante) contexto.getBean("solei");
 		malabaristaRecitador= (Concursante) contexto.getBean("soleiRecitador");
+		musicoPiano = (Concursante) contexto.getBean("jasonPiano");
+		musicoSaxofon = (Concursante) contexto.getBean("jasonSax");
 	}
 	
 	@Test
@@ -37,6 +42,20 @@ public class TestConcursoTalentos {
 		malabaristaRecitador.ejecutar();
 		assertEquals(numPelotas, ((Malabarista)malabaristaRecitador).getPelotas());
 		logger.info("Fin del Malabarista Recitador");
+		
+		logger.info("Iniciando Pianista");
+		String cancion ="Noche de Paz";
+		musicoPiano.ejecutar();
+		assertEquals(cancion, ((Musico)musicoPiano).getCancion());
+		logger.info("Finaliza el pianistas");
+		
+		logger.info("Iniciando Saxofonista");
+		cancion ="Skillet";
+		musicoSaxofon.ejecutar();
+		assertEquals(cancion, ((Musico)musicoSaxofon).getCancion());
+		logger.info("Finaliza el Saxofonista");
+		
+		
 	}
 	
 }
