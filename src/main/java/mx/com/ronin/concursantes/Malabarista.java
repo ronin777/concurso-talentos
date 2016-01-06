@@ -15,4 +15,12 @@ public class Malabarista implements Concursante{
 		System.out.println("Malabareo "+pelotas+" pelotas");
 	}
 
+	public int getPelotas() {
+		return pelotas;
+	}
+
+	public void setPelotas(int pelotas) {
+		this.pelotas = pelotas;
+	}
+
 }
